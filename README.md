@@ -12,6 +12,8 @@ main splits the file into different worker threads at the right place (a newline
 
 # Approaches
 
-## With transform-stream-worker.ts as worker use custom Transform stream
+### With transform-stream-worker.ts as worker use custom Transform stream
 
-## With worker.ts use a manual stream
+### With worker.ts use a manual stream
+
+### with worker-faster.ts only parse data once on splits

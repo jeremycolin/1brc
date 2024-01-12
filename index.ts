@@ -9,9 +9,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 console.time("start");
 
-// const TEST_FILE = "test-files/measurements-4.txt";
-// const TEST_FILE = "test-files/measurements-1M.txt";
-// const TEST_FILE = "test-files/measurements-100M.txt";
+// const TEST_FILE = "./test-files/measurements-4.txt";
+// const TEST_FILE = "./test-files/measurements-1M.txt";
+// const TEST_FILE = "./test-files/measurements-100M.txt";
 const TEST_FILE = "./1brc/measurements.txt";
 
 const WORKERS_NUMBER = 16;
@@ -45,7 +45,7 @@ const FIND_NEWLINE_SIZE = 100;
       end = end + dataSlice.indexOf("\n") - 1; // skip newline character
     }
 
-    const pipeWorker = new Worker(resolve(__dirname, "worker.ts"), {
+    const pipeWorker = new Worker(resolve(__dirname, "worker-faster.ts"), {
       workerData: { start, end, filePath, workerNumber: i },
     });
     activeWorkers++;

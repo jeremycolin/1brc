@@ -1,0 +1,10 @@
+Tbilisi;3.0
+Stockholm;2.7
+Jos;7.3
+Dunedin;24.8
+Yellowknife;-22.2
+Rabat;22.7
+Sana'a;26.1
+Alice Springs;12.6
+Dushanbe;18.2
+Washington, D.C.;15.1

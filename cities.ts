@@ -35,6 +35,30 @@ export class CitiesTemperaturesMapper {
     }
   }
 
+  processDataFaster(data: string) {
+    const indexOfSeparator = data.indexOf(";");
+    const city = data.slice(0, indexOfSeparator);
+    const temperatureString = data.slice(indexOfSeparator + 1);
+    const temperature = +temperatureString;
+
+    const cityTemperatures = this.citiesTemperatures.get(city) ?? {
+      city: city,
+      min: Infinity,
+      max: 0,
+      avg: 0,
+      count: 0,
+    };
+
+    cityTemperatures.min = Math.min(cityTemperatures.min, temperature);
+    cityTemperatures.max = Math.max(cityTemperatures.max, temperature);
+    cityTemperatures.count++;
+    cityTemperatures.avg =
+      (cityTemperatures.avg * (cityTemperatures.count - 1) + temperature) /
+      cityTemperatures.count;
+
+    this.citiesTemperatures.set(city, cityTemperatures);
+  }
+
   mergeCities(workerCities: CityMap) {
     workerCities.forEach((city) => {
       const cityResults = this.citiesTemperatures.get(city.city) ?? {
