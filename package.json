@@ -1,0 +1,10 @@
+{
+  "name": "1brc",
+  "main": "index.ts",
+  "repository": "git@github.com:jeremycolin/1brc.git",
+  "author": "Jeremy Colin <jeremypa.colin@gmail.com>",
+  "type": "module",
+  "dependencies": {
+    "typescript": "^5.3.3"
+  }
+}
